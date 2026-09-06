@@ -13,13 +13,14 @@
 
         body {
             margin: 0;
-            height: 100vh;
+            height: 90vh;
             display: flex;
         }
 
         .signUp ,.signIn{
             width: fit-content;
             border: 1px solid black;
+            background-color: aliceblue;
             border-radius: 10px;
             margin: auto;
             padding: 1%;
@@ -79,7 +80,7 @@
             </label>
             <div class="buttons">
                 <input type="button" value="SignUp">
-                <input type="button" value="SignIn" onclick="document.getElementsByClassName('signIn').style.display='block' ">
+                <input type="button" value="SignIn" onclick=" btnClicked() ">
             </div>
         </form>
     </div>
@@ -105,9 +106,21 @@
             </label>
             <div class="buttons">
                 <input type="button" value="SignIn">
+                <input type="button" value="Cancel" onclick="cancelClicked()">
             </div>
         </form>
     </div>
 </body>
-
+<script>
+    function btnClicked()
+    {
+        document.querySelector(".signIn").style.display="block"
+        document.querySelector(".signUp").style.display="none"
+    }
+    function cancelClicked()
+    {
+        document.querySelector('.signIn').style.display='none'
+        document.querySelector('.signUp').style.display='block'
+    }
+</script>
 </html>
