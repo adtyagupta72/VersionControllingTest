@@ -7,8 +7,13 @@
 
     <title>Signup Page</title>
     <style>
-        *{
+        * {
             margin:1%;
+            cursor: pointer;
+          
+        }
+        body{
+              caret-color: transparent;
         }
        .div1
        {
@@ -26,7 +31,7 @@
             margin-top: 0%;
             margin-bottom: 0vmin;
         } 
-        h4{
+        .sider{
             float:right;
             margin-bottom: 0%;
             margin-top: 0%;
@@ -35,9 +40,27 @@
         input{
             width:90vmax;
             height:5vmin;
-            border-color: gray;
+            border:0.1vmin solid darkgray;
             border-radius:1vmin;
+             caret-color: auto;
         }
+        .create
+        {
+            width:20vmax;
+            height:5vmin;
+             border-radius:1vmin;
+             background-color: #0F172A;
+             color:white;
+             font-weight: bolder;
+        }
+        .create:hover{
+            color:#10B981;
+        }
+        #signin
+        {
+            font-weight: bolder;
+        }
+        
     </style>
 </head>
 <body>
@@ -47,19 +70,21 @@
                 <h1 ><strong>Create Account<span class="w3-content" style="float:right; color:#10B981;">$</span></strong></h1><br>
                 <h2 >Expense tracking made simple -<span style="color:#10B981;">Sign up</span>to begin</h2>
                 <hr>
-                <h4 >Join 40,000+ savers</h4>
+                <h4 class="sider">Join 40,000+ savers</h4>
            </div>
+           
            <div class="w3-container">
             <form>
                 <label>Full Name</label><br>
-                <input  type="text"><br>
+                <input  type="text" title="Enter your name"><br>
                 <label>Email</label><br>
-                <input  type="email"><br>
+                <input  type="email" title="Enter your email"><br>
                 <label>Password</label><br>
-                <input  type="password"><br><br>
+                <input  type="password" title="Enter password"><br><br>
 
-                <center><button >Create Account</button></center>
+                <center><button class="create" >Create Account</button></center>
             </form>
+            <center><h4>Already have an account ?<span id="signin" >Sign in</span></h4></center>
            </div>
         </section>
     </main>
