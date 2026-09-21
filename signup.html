@@ -46,7 +46,7 @@
         }
         .create
         {
-            width:20vmax;
+            width:15vmax;
             height:5vmin;
              border-radius:1vmin;
              background-color: #0F172A;
@@ -61,20 +61,41 @@
             font-weight: bolder;
 
         }
+        input
+        {
+            width:70vmin;
+
+        }
+        .parent{
+            margin-left:30vmax;
+        }
+
+        .spin
+        {
+            animation: spin 2s linear infinite;
+            
+        }
+        
+        @keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+    .spin:hover   
         
     </style>
 </head>
 <body>
     <main>
         <section>
-            <div class="w3-container div1" style="max-width:100% ; ">
-                <h1 ><strong>Create Account<span class="w3-content" style="float:right; color:#10B981;">$</span></strong></h1><br>
+            <div class="w3-container div1" style="width:70vmax; margin-left:12vmax;"  >
+                <h1 ><strong>Create Account<span class="w3-content  spin" style="float:right; color:#10B981; margin-right:5vmin;">$</span></strong></h1><br>
                 <h2 >Expense tracking made simple -<span style="color:#10B981;">Sign up</span>to begin</h2>
                 <hr>
                 <h4 class="sider">Start tracking your expense!</h4>
            </div>
            
-           <div class="w3-container">
+           <div class="w3-container parent">
+           
             <form>
                 <label>Full Name</label><br>
                 <input  type="text" title="Enter your name"><br>
@@ -82,14 +103,14 @@
                 <input  type="email" title="Enter your email"><br>
                 <label>Password</label><br>
                 <input  type="password" title="Enter password"><br><br>
-
-                <center><button class="create" >Create Account</button></center>
             </form>
+            </div>
+              <center><button class="create" >Create Account</button></center>
             <center><p>Already have an account ?<a href="login.html" style="font-weight: bolder; text-decoration: none;">Sign in</a></p></center>
-           </div>
+           
         </section>
     </main>
 
 
 </body>
-</html>
+</html
