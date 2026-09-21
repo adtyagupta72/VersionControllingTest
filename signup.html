@@ -8,18 +8,33 @@
 </head>
 
 <body>
-    <h2>This is the signUp page</h2>
-    <h3>this changes from zeeshan </h3>
+    <main>
+        <section>
+            <div class="w3-container div1" style="max-width:100% ; ">
+                <h1 ><strong>Create Account<span class="w3-content" style="float:right; color:#10B981;">$</span></strong></h1><br>
+                <h2 >Expense tracking made simple -<span style="color:#10B981;">Sign up</span>to begin</h2>
+                <hr>
+                <h4 class="sider">Start tracking your expense!</h4>
+           </div>
+           
+           <div class="w3-container">
+            <form>
+                <label>Full Name</label><br>
+                <input  type="text" title="Enter your name"><br>
+                <label>Email</label><br>
+                <input  type="email" title="Enter your email"><br>
+                <label>Password</label><br>
+                <input  type="password" title="Enter strong password"><br><br>
+
+                <center><button class="create" >Create Account</button></center>
+            </form>
+            <center><p>Already have an account ?<a href="login.html" style="font-weight: bolder; text-decoration: none;">Sign in</a></p></center>
+           </div>
+        </section>
+    </main>
+
+
 </body>
-<script>
-    function btnClicked() {
-        document.querySelector(".signIn").style.display = "block"
-        document.querySelector(".signUp").style.display = "none"
-    }
-    function cancelClicked() {
-        document.querySelector('.signIn').style.display = 'none'
-        document.querySelector('.signUp').style.display = 'block'
-    }
-</script>
+
 
 </html>
