@@ -28,6 +28,7 @@
          display: flex;
         text-align: center;
         justify-content: center;
+        align-items: center;
     }
     h1{
         color:#0F172A;
@@ -51,10 +52,11 @@
     .div1
     {
         background-color:#0F172A;
-        border-radius: 5vmin;
-        font-size: 5vmin;
+        border-radius: 8vmax;
+        font-size: 6.5vmin;
         width:10vmin;
-        height:8vmin;
+        height:10vmin;
+        
        
 
     }
@@ -90,6 +92,15 @@
             border-radius:1vmin;
              caret-color: auto;
         }
+        .spin{
+            display: inline-block;
+        animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
     </style>
 </head>
 <body>
@@ -97,7 +108,7 @@
     <main>
         <diV class="parent">
     <div class=" div1">
-        <span style="color:#10B981;" >$</span>
+        <span class="spin" style="color:#10B981;" >₹</span>
     </div>
     </diV>
 
