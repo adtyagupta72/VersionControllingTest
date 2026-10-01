@@ -49,6 +49,26 @@
         margin-left: 1.5vmin;
         }
 
+        .parent2{
+            display:flex;
+            /* flex-direction: column; */
+            justify-content: center;
+            align-items: center;
+
+        }
+        .child3, .child4
+        {
+            width:25vmin;
+            height:20vmin;
+            background-color: #0F172A;
+            margin-left: 4vmax;
+            margin-right: 4vmax;
+            border-radius: 0.9vmin;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
 
     </style>
@@ -61,12 +81,7 @@
         <div class="child1">
             <h1 style=" margin-left: 8vmin; color:#10B981; margin-top: 4vmin; margin-bottom: 0%;font-size: 4vmin;">Current Balance <span class="w3-content  spin" style="color:#10B981; ">$</span></h1>
              <h2 style=" margin-left: 8vmin; color:#10B981;  font-size: 5.5vmin; margin-top: 0%; margin-bottom:0%;">$ 52,000</h2>
-           <!-- <h4 style="color:#10B981; margin-top: 2vmin; "> <span style=" margin-left: 8vmin;   color:lightgreen; ">↓</span>income</h4>
-           <h3 style="margin-left: 8vmin; color:#10B981;">$ 45600</h3>
-
-           <h4 style="color:#10B981; margin-top: 2vmin;"> <span style=" margin-left: 8vmin;   color:red; ">↑</span>Expense</h4>
-           <h3 style="margin-left: 8vmin; color:#10B981;">$ 45600</h3> -->
-
+         
            <div class="row">
             <div class="income">
                 <h4 style="color:#10B981;">
@@ -82,11 +97,27 @@
             <h3 style="color:#10B981;margin-left: 12vmin;">$ 45600</h3>
         </div>
         </div>
-          
+        </div>        
+        </div>  
+
+        <div class="parent2">
+            <div class="child3">
+                <button style="background-color: #10B981;  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none; margin:none;">
+                    <span style="font-size: 4.5vmin; margin-right: 7vmin;">+</span>
+                </button><br>
+                <h3 style="color:#10B981">Add Income</h3>
+            </div>
+            
+            <div class="child4">
+                <button style="background-color: #10B981;  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;">
+                    <span style="font-size: 5vmin; margin-right: 7vmin;">−</span>
+                </button><br>
+                <h3 style="color:#10B981">Add Expense</h3>
+            </div>
+            
+        </div>
          
-        </div>
         
-        </div>
 
         
         
