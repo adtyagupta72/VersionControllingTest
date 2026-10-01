@@ -85,16 +85,28 @@
         .button1:hover
         {
             background-color: lightgreen;
+             transform: scale(1.02);
+             box-shadow: 0 0 10px rgba(0,255,0,0.3);
         }
         .button2{
             background-color: #10B981;
+           
         }
 
         .button2:hover
         {
             background-color: red;
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(170, 42, 3, 0.23);
         }
 
+     h3,h4{
+            transition: all 0.2s ease;
+        }
+
+       h3:hover,h4:hover{
+            transform: scale(1.1);
+        }
 
     </style>
 </head>
@@ -102,25 +114,26 @@
 <body>
     <main>
         <div class="parent">
-         
-            <h1 style=" margin-left: 8vmin; color:#10B981; margin-top: 8vmin; margin-bottom: 0%;font-size: 4vmin;">Current Balance <span class="w3-content  spin" style="color:#10B981; margin:0%;">₹</span></h1>
+         <div class="child1">
+            <h4 style="float:right; color:#10B981; margin-right:2vmin;">🪙Paisa.com</h4>
+            <h1 style=" margin-left: 8vmin; color:#10B981; margin-top: 6vmin; margin-bottom: 2vmin;font-size: 4vmin;">Current Balance <span class="w3-content  spin" style="color:#10B981; margin:0%;">₹</span></h1>
            
-        <div class="child1">
-             <h2 style=" margin-left: 8vmin; color:#10B981;  font-size: 5.5vmin; margin-top: 0%; margin-bottom:0%;">$ 52,000</h2>
+        
+             <h2 style=" margin-left: 8vmin; color:#10B981;  font-size: 5.5vmin; margin-top: 0%; margin-bottom:0%;">₹ 52,000</h2>
          
            <div class="row">
             <div class="income">
-                <h4 style="color:#10B981;">
+                <h4 style="color:lightgreen;">
                 <span style="color:lightgreen;">↓</span> Income
                 </h4>
-                <h3 style="color:#10B981;margin-left: 3vmin;">$ 45600</h3>
+                <h3 style="color:lightgreen;margin-left: 3vmin;">₹ 45600</h3>
             </div>
 
         <div class="expense">
-            <h4 style="color:#10B981; margin-left: 8vmin;">
+            <h4 style="color:red; margin-left: 8vmin;">
             <span style="color:red;">↑</span> Expense
             </h4>
-            <h3 style="color:#10B981;margin-left: 12vmin;">$ 45600</h3>
+            <h3 style="color:red;margin-left: 12vmin;">₹ 45600</h3>
         </div>
         </div>
         </div>        
