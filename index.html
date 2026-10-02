@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Dashboard</title>
     <style>
+       
         *
         {
             margin:2vmin;
@@ -17,6 +18,8 @@
              flex-direction: column;
             align-items: center;
             justify-content: center;
+            
+           
            
         }
      .child1
@@ -26,6 +29,7 @@
             height:40vmin;
             background-color:#0F172A ;
             border-radius:1.8vmin;
+             box-shadow: 0 4px 6px rgba(16, 14, 14, 0.627);
         }
         .spin
         {
@@ -56,6 +60,9 @@
             /* flex-direction: column; */
             justify-content: center;
             align-items: center;
+           
+
+            
 
         }
         .child3, .child4
@@ -71,6 +78,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin-top: 0vmin;
+            box-shadow: 0 4px 6px rgba(16, 14, 14, 0.627);
         }
 
         button{
@@ -119,21 +128,21 @@
             <h1 style=" margin-left: 8vmin; color:#10B981; margin-top: 6vmin; margin-bottom: 2vmin;font-size: 4vmin;">Current Balance <span class="w3-content  spin" style="color:#10B981; margin:0%;">₹</span></h1>
            
         
-             <h2 style=" margin-left: 8vmin; color:#10B981;  font-size: 5.5vmin; margin-top: 0%; margin-bottom:0%;">₹ 52,000</h2>
+             <h2 id="balance" style=" margin-left: 8vmin; color:#10B981;  font-size: 5.5vmin; margin-top: 0%; margin-bottom:0%;">₹0</h2>
          
            <div class="row">
             <div class="income">
                 <h4 style="color:lightgreen;">
                 <span style="color:lightgreen;">↓</span> Income
                 </h4>
-                <h3 style="color:lightgreen;margin-left: 3vmin;">₹ 45600</h3>
+                <h3  id ="income" style="color:lightgreen;margin-left: 3vmin;">₹0</h3>
             </div>
 
         <div class="expense">
             <h4 style="color:red; margin-left: 8vmin;">
             <span style="color:red;">↑</span> Expense
             </h4>
-            <h3 style="color:red;margin-left: 12vmin;">₹ 45600</h3>
+            <h3 id="expense" style="color:red;margin-left: 12vmin;">₹0</h3>
         </div>
         </div>
         </div>        
@@ -143,6 +152,7 @@
         <div class="parent2">
             <div class="child3">
                 <button class= "button1" style="  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;  margin-top: 4vmin;">
+                  
                     <span style="font-size: 4.5vmin; ">+</span>
                 </button>
                 <h4 style="color:#10B981">Add Income</h4>
@@ -166,5 +176,30 @@
         
        
     </main>
+    <script>
+        let balance = 0;
+        let income = 0;
+        let expense = 0;
+
+        function addIncome(amount)
+        {
+            income += amount ;
+            updatedashboard()
+        }
+
+        function addExpense(amount)
+        {
+            expense += amount ;
+            updatedashboard()
+        }
+
+        function updatedashboard()
+        {
+            balance = income - expense 
+            document.getElementById('balance').innerText = "₹" + balance;
+            document.getElementById('expense').innerText = "₹" + expense;
+            document.getElementById('income').innerText = "₹" + income;
+        }
+    </script>
 </body>
 </html>
