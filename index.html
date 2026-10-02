@@ -117,6 +117,42 @@
             transform: scale(1.1);
         }
 
+        .dialog {
+        display: none; 
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+        }
+
+        .dialog-content 
+
+        {
+        background: #0F172A;
+        padding: 2vmin;
+        border-radius: 2vmin;
+        text-align: center;
+        color: #10B981;
+        font-size: 2vmin;
+        }
+        .create
+        {
+            width:5vmax;
+            height:5vmin;
+             border-radius:1vmin;
+             background-color: #0F172A;
+             color:white;
+             font-weight: bolder;
+             margin-left: 2vmin;
+             margin-right: 2vmin;
+             box-shadow: ;
+        }
+        .create:hover{
+            color:#10B981;
+        }
+
     </style>
 </head>
 
@@ -151,7 +187,7 @@
 
         <div class="parent2">
             <div class="child3">
-                <button onclick="addIncomePrompt()" class= "button1" style="  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;  margin-top: 4vmin;">
+                <button onclick="openDialog('income')" class= "button1" style="  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;  margin-top: 4vmin;">
                   
                     <span style="font-size: 4.5vmin; ">+</span>
                 </button>
@@ -159,13 +195,25 @@
             </div>
             
             <div class="child4">
-                <button onclick="addExpensePrompt()" class= "button2" style=" width:8vmin; height:8vmin;  border-radius: 5vmin; border:none; margin-top: 4vmin;  ">
+                <button onclick="openDialog('expense')" class= "button2" style=" width:8vmin; height:8vmin;  border-radius: 5vmin; border:none; margin-top: 4vmin;  ">
                     <span style="font-size: 5vmin; ">−</span>
                 </button>
                 <h4 style="color:#10B981; ">Add Expense</h4>
             </div>
             
         </div>
+
+        <div id="dialogBox" class="dialog">
+        <div class="dialog-content">
+            <h3 id="dialogTitle">Enter Amount</h3>
+            <input type="number" id="dialogAmount" placeholder="Enter Amount">
+        <div style="display: flex;"> 
+            <button onclick="closeDialog()" class="create">Cancel</button>   
+            <button onclick="submitAmount()" class="create">Add</button>
+            
+        </div>    
+        </div>
+</div>
          
         
 
@@ -176,37 +224,44 @@
         
        
     </main>
+
     <script>
         let balance = 0;
         let income = 0;
         let expense = 0;
-
-        function addIncomePrompt()
-         {
-        let amount = parseInt(prompt("Enter income amount:"));
-        if(!isNaN(amount) && amount > 0)
-            {
-                income += amount;
-                updatedashboard();
-            }
+        let currentType = ""; 
+        function openDialog(type){
+        currentType = type;
+        document.getElementById("dialogTitle").innerText = 
+            type === "income" ? "Enter Income Amount" : "Enter Expense Amount";
+        document.getElementById("dialogBox").style.display = "flex";
         }
 
-        function addExpensePrompt() 
-        {
-        let amount = parseInt(prompt("Enter expense amount:"));
-            if(!isNaN(amount) && amount > 0)
-            {
-                expense += amount;
-                updatedashboard();
+        function closeDialog(){
+        document.getElementById("dialogBox").style.display = "none";
+        }
+
+        function submitAmount(){
+        let amount = parseInt(document.getElementById("dialogAmount").value);
+        if(!isNaN(amount) && amount > 0){
+            if(currentType === "income"){
+            income += amount;
+            } else {
+            expense += amount;
             }
+            updatedashboard();
         }
-        function updatedashboard()
-        {
-            balance = income - expense 
-            document.getElementById('balance').innerText = "₹" + balance;
-            document.getElementById('expense').innerText = "₹" + expense;
-            document.getElementById('income').innerText = "₹" + income;
+        closeDialog();
+        document.getElementById("dialogAmount").value = ""; 
         }
-    </script>
+
+        function updatedashboard(){
+        balance = income - expense;
+        document.getElementById('balance').innerText = "₹" + balance;
+        document.getElementById('income').innerText = "₹" + income;
+        document.getElementById('expense').innerText = "₹" + expense;
+        }
+</script>
+
 </body>
 </html>
