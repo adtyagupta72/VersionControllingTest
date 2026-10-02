@@ -137,7 +137,7 @@
         color: #10B981;
         font-size: 2vmin;
         }
-        .create
+        .create1, .create2
         {
             width:5vmax;
             height:5vmin;
@@ -147,10 +147,13 @@
              font-weight: bolder;
              margin-left: 2vmin;
              margin-right: 2vmin;
-             box-shadow: ;
+            
         }
-        .create:hover{
+        .create1:hover{
             color:#10B981;
+        }
+        .create2:hover{
+            color:red;
         }
 
     </style>
@@ -208,8 +211,8 @@
             <h3 id="dialogTitle">Enter Amount</h3>
             <input type="number" id="dialogAmount" placeholder="Enter Amount">
         <div style="display: flex;"> 
-            <button onclick="closeDialog()" class="create">Cancel</button>   
-            <button onclick="submitAmount()" class="create">Add</button>
+            <button onclick="closeDialog()" class="create2">Cancel</button>   
+            <button onclick="submitAmount()" class="create1">Add</button>
             
         </div>    
         </div>
@@ -233,7 +236,7 @@
         function openDialog(type){
         currentType = type;
         document.getElementById("dialogTitle").innerText = 
-            type === "income" ? "Enter Income Amount" : "Enter Expense Amount";
+            type === "income" ? "+Income Amount" : "-Expense Amount";
         document.getElementById("dialogBox").style.display = "flex";
         }
 
