@@ -301,6 +301,7 @@
   transactions.forEach(txn => {
     const li = document.createElement("li");
     li.innerText = `${txn.type}: ₹${txn.amount} | Category: ${txn.category} | Date: ${txn.date}`;
+    
     list.appendChild(li);
   });
 }
