@@ -57,7 +57,7 @@
 
         .parent2{
             display:flex;
-            /* flex-direction: column; */
+            
             justify-content: center;
             align-items: center;
            
@@ -156,6 +156,11 @@
             color:red;
         }
 
+        li{
+            color:white;
+            margin-left: 0vmin;
+            /* text-align: center; */
+        }
     </style>
 </head>
 
@@ -174,7 +179,7 @@
                 <h4 style="color:lightgreen;">
                 <span style="color:lightgreen;">↓</span> Income
                 </h4>
-                <h3  id ="income" style="color:lightgreen;margin-left: 3vmin;">₹0</h3>
+                <h3  id ="income" style="color:lightgreen;margin-left: 3vmin;">+₹0</h3>
             </div>
 
         <div class="expense">
@@ -202,14 +207,29 @@
                     <span style="font-size: 5vmin; ">−</span>
                 </button>
                 <h4 style="color:#10B981; ">Add Expense</h4>
-            </div>
-            
+            </div>            
+        </div>
+        <div style="display: flex; justify-content: center;">
+        <div   style="background-color: #0F172A; width:80vmin; height:100%; border-radius:1.5vmin;">
+        <h2 style="color:#10B981; margin-left:5vmin; margin-top:2vmin; font-size: 3vmin;">Recent Transactions</h2>
+        <ul id="transactionList" ></ul>
+        </div>
         </div>
 
         <div id="dialogBox" class="dialog">
         <div class="dialog-content">
             <h3 id="dialogTitle">Enter Amount</h3>
             <input type="number" id="dialogAmount" placeholder="Enter Amount">
+
+            <select id="dialogCategory">
+            <option value="Salary">Salary</option>
+            <option value="Food">Food</option>
+            <option value="Bills">Bills</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
+            </select>
+
+
         <div style="display: flex;"> 
             <button onclick="closeDialog()" class="create2">Cancel</button>   
             <button onclick="submitAmount()" class="create1">Add</button>
@@ -229,6 +249,8 @@
     </main>
 
     <script>
+
+        let transactions = [];
         let balance = 0;
         let income = 0;
         let expense = 0;
@@ -246,13 +268,20 @@
 
         function submitAmount(){
         let amount = parseInt(document.getElementById("dialogAmount").value);
+        let category = document.getElementById("dialogCategory").value;
         if(!isNaN(amount) && amount > 0){
-            if(currentType === "income"){
+            if(currentType === "income")
+            {
             income += amount;
-            } else {
+            transactions.push({type:"Income" , amount:amount, category: category , date: new Date().toLocaleString("en-GB") })
+            } 
+            else
+            {
             expense += amount;
+            transactions.push({ type: "Expense", amount: amount, category: category, date: new Date().toLocaleString("en-GB") });
             }
             updatedashboard();
+            updateTransactionList();
         }
         closeDialog();
         document.getElementById("dialogAmount").value = ""; 
@@ -261,9 +290,21 @@
         function updatedashboard(){
         balance = income - expense;
         document.getElementById('balance').innerText = "₹" + balance;
-        document.getElementById('income').innerText = "₹" + income;
-        document.getElementById('expense').innerText = "₹" + expense;
+        document.getElementById('income').innerText = "+₹" + income;
+        document.getElementById('expense').innerText = "-₹" + expense;
         }
+
+        function updateTransactionList(){
+  const list = document.getElementById("transactionList");
+  list.innerHTML = "";
+
+  transactions.forEach(txn => {
+    const li = document.createElement("li");
+    li.innerText = `${txn.type}: ₹${txn.amount} | Category: ${txn.category} | Date: ${txn.date}`;
+    list.appendChild(li);
+  });
+}
+
 </script>
 
 </body>
