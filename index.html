@@ -151,7 +151,7 @@
 
         <div class="parent2">
             <div class="child3">
-                <button class= "button1" style="  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;  margin-top: 4vmin;">
+                <button onclick="addIncomePrompt()" class= "button1" style="  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;  margin-top: 4vmin;">
                   
                     <span style="font-size: 4.5vmin; ">+</span>
                 </button>
@@ -159,7 +159,7 @@
             </div>
             
             <div class="child4">
-                <button class= "button2" style=" width:8vmin; height:8vmin;  border-radius: 5vmin; border:none; margin-top: 4vmin;  ">
+                <button onclick="addExpensePrompt()" class= "button2" style=" width:8vmin; height:8vmin;  border-radius: 5vmin; border:none; margin-top: 4vmin;  ">
                     <span style="font-size: 5vmin; ">−</span>
                 </button>
                 <h4 style="color:#10B981; ">Add Expense</h4>
@@ -181,18 +181,25 @@
         let income = 0;
         let expense = 0;
 
-        function addIncome(amount)
-        {
-            income += amount ;
-            updatedashboard()
+        function addIncomePrompt()
+         {
+        let amount = parseInt(prompt("Enter income amount:"));
+        if(!isNaN(amount) && amount > 0)
+            {
+                income += amount;
+                updatedashboard();
+            }
         }
 
-        function addExpense(amount)
+        function addExpensePrompt() 
         {
-            expense += amount ;
-            updatedashboard()
+        let amount = parseInt(prompt("Enter expense amount:"));
+            if(!isNaN(amount) && amount > 0)
+            {
+                expense += amount;
+                updatedashboard();
+            }
         }
-
         function updatedashboard()
         {
             balance = income - expense 
