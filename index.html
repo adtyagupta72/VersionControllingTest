@@ -159,8 +159,10 @@
         li{
             color:white;
             margin-left: 0vmin;
-            /* text-align: center; */
+            
         }
+
+       
     </style>
 </head>
 
@@ -298,14 +300,49 @@
   const list = document.getElementById("transactionList");
   list.innerHTML = "";
 
+  if (transactions.length === 0) {
+    // Create a container for empty state
+    const emptyDiv = document.createElement("div");
+    emptyDiv.style.textAlign = "center";
+    emptyDiv.style.padding = "2vmin";
+
+    // Wallet image
+    const img = document.createElement("img");
+    img.src = "new2.png";
+    img.alt = "Wallet";
+    // img.style.width = "50px";
+    img.style.width = "30vmin";   // width badha di
+    img.style.height = "30vmin";
+    img.style.position = "center";
+    
+    //
+   
+
+
+    img.style.opacity = "0.8";
+
+    // Heading text
+    const heading = document.createElement("h3");
+    heading.innerText = "No transactions";
+    heading.style.color = "#10B981";
+
+    emptyDiv.appendChild(img);
+    emptyDiv.appendChild(heading);
+    list.appendChild(emptyDiv);
+  } else {
+
   transactions.forEach(txn => {
     const li = document.createElement("li");
     li.innerText = `${txn.type}: ₹${txn.amount} | Category: ${txn.category} | Date: ${txn.date}`;
     
     list.appendChild(li);
-  });
+  })
 }
+     }
 
+ window.onload = function(){
+        updateTransactionList();
+    }
 </script>
 
 </body>
