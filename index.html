@@ -139,8 +139,8 @@
         }
         .create1, .create2
         {
-            width:5vmax;
-            height:5vmin;
+            width:15vmin;
+            height:4.5vmin;
              border-radius:1vmin;
              background-color: #0F172A;
              color:white;
@@ -160,6 +160,27 @@
             color:white;
             margin-left: 0vmin;
             
+        }
+
+        
+        #dialogCategory
+        {
+            width:9.2vmin;
+            
+        }
+
+        #dialogTitle
+        {
+             width:30vmin;
+             height:5vmin;
+             align-items: center;
+             
+        }
+
+        #dialogAmount
+        {
+             width:25vmin;
+             border-radius:0.9vmin;
         }
 
        
@@ -222,6 +243,7 @@
         <div class="dialog-content">
             <h3 id="dialogTitle">Enter Amount</h3>
             <input type="number" id="dialogAmount" placeholder="Enter Amount">
+           
 
             <select id="dialogCategory">
             <option value="Salary">Salary</option>
@@ -235,13 +257,13 @@
             </select>
 
 
-        <div style="display: flex;"> 
+        <div style="display: flex; gap:0.5vmin"> 
             <button onclick="closeDialog()" class="create2">Cancel</button>   
             <button onclick="submitAmount()" class="create1">Add</button>
             
-        </div>    
+          </div>   
         </div>
-</div>
+        </div>
          
         
 
